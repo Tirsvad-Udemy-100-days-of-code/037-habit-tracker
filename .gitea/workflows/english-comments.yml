@@ -27,3 +27,4 @@ jobs:
     uses: TirSystem/github-action/.gitea/workflows/english-comments.yml@v2
     with:
       exclude: "docs/**"
+      allowed-words-file: .english-comments-allowed-words

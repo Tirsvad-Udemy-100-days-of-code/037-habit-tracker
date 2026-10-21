@@ -74,6 +74,10 @@ HIDDEN_TOKEN = "********"
 #  lower case letters, digits or hyphens.
 USERNAME_PATTERN = r"[a-z][a-z0-9-]{1,32}"
 
+## @brief Pattern of a valid Pixela graph id: a lower case letter, then 1 to 16
+#  lower case letters, digits or hyphens.
+GRAPH_ID_PATTERN = r"[a-z][a-z0-9-]{1,16}"
+
 ## @brief Pattern of a valid Pixela token: 8 to 128 printable ASCII characters
 #  without a space.
 TOKEN_PATTERN = r"[\x21-\x7e]{8,128}"

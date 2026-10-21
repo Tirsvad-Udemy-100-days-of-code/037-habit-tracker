@@ -112,6 +112,87 @@ def test_create_user_output_never_contains_the_token() -> None:
     assert SECRET not in output
 
 
+GRAPH_ARGS = ["create-graph", "--id", "run1", "--name", "Running", "--unit", "km"]
+
+
+def test_create_graph_dry_run_prints_the_request() -> None:
+    code, output = _run(["--dry-run", *GRAPH_ARGS], ENVIRON)
+    assert code == EXIT_OK
+    assert "POST https://pixe.la/v1/users/jens-test/graphs" in output
+    assert '"id": "run1"' in output
+    assert '"color": "ajisai"' in output
+    assert '"type": "float"' in output
+
+
+def test_create_graph_dry_run_hides_the_token() -> None:
+    _, output = _run(["--dry-run", *GRAPH_ARGS], ENVIRON)
+    assert SECRET not in output
+
+
+def test_create_graph_dry_run_shows_the_header_masked() -> None:
+    _, output = _run(["--dry-run", *GRAPH_ARGS], ENVIRON)
+    assert "X-USER-TOKEN: ********" in output
+
+
+def test_create_graph_returns_ok_when_the_server_accepts() -> None:
+    with running_server(200, "Success.") as server:
+        code, output = _run(GRAPH_ARGS, ENVIRON, server.base_url)
+        request = server.requests[0]
+    assert code == EXIT_OK
+    assert "Success (200): Success." in output
+    assert request.headers["x-user-token"] == SECRET
+
+
+def test_create_graph_returns_rejected_when_the_server_answers_409() -> None:
+    with running_server(409, "This graphID already exists.") as server:
+        code, output = _run(GRAPH_ARGS, ENVIRON, server.base_url)
+    assert code == EXIT_REJECTED
+    assert "Rejected (409): This graphID already exists." in output
+
+
+def test_create_graph_output_never_contains_the_token() -> None:
+    with running_server() as server:
+        _, output = _run(GRAPH_ARGS, ENVIRON, server.base_url)
+    assert SECRET not in output
+
+
+def test_create_graph_returns_invalid_and_sends_nothing_when_id_is_invalid() -> None:
+    args = ["create-graph", "--id", "Bad Id", "--name", "Running", "--unit", "km"]
+    with running_server() as server:
+        code, output = _run(args, ENVIRON, server.base_url)
+        assert (code, server.requests) == (EXIT_INVALID, [])
+    assert "graph id" in output
+
+
+def test_create_graph_returns_invalid_and_sends_nothing_when_name_is_empty() -> None:
+    args = ["create-graph", "--id", "run1", "--name", " ", "--unit", "km"]
+    with running_server() as server:
+        code, _ = _run(args, ENVIRON, server.base_url)
+        assert (code, server.requests) == (EXIT_INVALID, [])
+
+
+def test_create_graph_exits_with_two_and_sends_nothing_when_color_is_unknown() -> None:
+    with running_server() as server:
+        with pytest.raises(SystemExit) as info:
+            _run([*GRAPH_ARGS, "--color", "red"], ENVIRON, server.base_url)
+        assert (info.value.code, server.requests) == (EXIT_INVALID, [])
+
+
+def test_create_graph_exits_with_two_and_sends_nothing_when_type_is_unknown() -> None:
+    with running_server() as server:
+        with pytest.raises(SystemExit) as info:
+            _run([*GRAPH_ARGS, "--type", "string"], ENVIRON, server.base_url)
+        assert (info.value.code, server.requests) == (EXIT_INVALID, [])
+
+
+def test_create_graph_sends_the_chosen_type_and_color() -> None:
+    args = [*GRAPH_ARGS, "--type", "int", "--color", "kuro"]
+    with running_server() as server:
+        _run(args, ENVIRON, server.base_url)
+        body = server.requests[0].body
+    assert (body["type"], body["color"]) == ("int", "kuro")
+
+
 def test_unreachable_server_returns_unreachable() -> None:
     code, output = _run(["create-user"], ENVIRON, unused_base_url())
     assert code == EXIT_UNREACHABLE
