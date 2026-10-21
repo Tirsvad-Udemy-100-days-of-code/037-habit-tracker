@@ -8,5 +8,6 @@ here.
 
 from habit_tracker.application.use_cases.create_graph import create_graph
 from habit_tracker.application.use_cases.create_user import create_user
+from habit_tracker.application.use_cases.post_pixel import post_pixel
 
-__all__ = ["create_graph", "create_user"]
+__all__ = ["create_graph", "create_user", "post_pixel"]

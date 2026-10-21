@@ -7,11 +7,15 @@ import pytest
 from habit_tracker.application.errors.gateway_error import GatewayError
 from habit_tracker.application.use_cases.create_graph import create_graph
 from habit_tracker.application.use_cases.create_user import create_user
+from habit_tracker.application.use_cases.post_pixel import post_pixel
 from habit_tracker.domain.value_objects.credentials import Credentials
 from habit_tracker.domain.value_objects.graph import Graph
 from habit_tracker.domain.value_objects.graph_color import GraphColor
 from habit_tracker.domain.value_objects.graph_id import GraphId
 from habit_tracker.domain.value_objects.graph_type import GraphType
+from habit_tracker.domain.value_objects.pixel import Pixel
+from habit_tracker.domain.value_objects.pixel_date import PixelDate
+from habit_tracker.domain.value_objects.quantity import Quantity
 from habit_tracker.infrastructure.http.requests_pixela_gateway import (
     RequestsPixelaGateway,
 )
@@ -19,6 +23,8 @@ from tests.integration.local_pixela_server import running_server, unused_base_ur
 
 CREDENTIALS = Credentials.of("jens-test", "abcdefgh12345")
 GRAPH = Graph(GraphId("run1"), "Running", "km", GraphType.FLOAT, GraphColor.AJISAI)
+CYCLING = GraphId("cycling")
+PIXEL = Pixel(PixelDate.parse("2026-10-22"), Quantity("9.74"))
 
 
 def test_create_user_succeeds_when_the_server_answers_200() -> None:
@@ -104,6 +110,24 @@ def test_create_graph_returns_the_message_when_the_server_answers_409() -> None:
             RequestsPixelaGateway(server.base_url), CREDENTIALS, GRAPH
         )
     assert (response.status_code, response.is_success) == (409, False)
+
+
+def test_post_pixel_sends_a_post_to_the_pixels_path() -> None:
+    with running_server() as server:
+        post_pixel(RequestsPixelaGateway(server.base_url), CREDENTIALS, CYCLING, PIXEL)
+        request = server.requests[0]
+    assert (request.method, request.path) == (
+        "POST",
+        "/v1/users/jens-test/graphs/cycling",
+    )
+
+
+def test_post_pixel_sends_the_token_header_and_the_string_body() -> None:
+    with running_server() as server:
+        post_pixel(RequestsPixelaGateway(server.base_url), CREDENTIALS, CYCLING, PIXEL)
+        request = server.requests[0]
+    assert request.headers["x-user-token"] == "abcdefgh12345"
+    assert request.body == {"date": "20261022", "quantity": "9.74"}
 
 
 def test_gateway_raises_gateway_error_when_the_connection_is_refused() -> None:
