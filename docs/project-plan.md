@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | S01 (accepted in chat) | Initial version | pending |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | S01 (accepted in chat) | Initial version | [08a6fcc] |
 
 ---
 
@@ -95,3 +95,4 @@ A No-Go on a gateway moves every later date by the time of the rework; the end d
 [MIL-003]: ./milestones/mil-003-create-graph.md
 [MIL-004]: ./milestones/mil-004-post-pixel.md
 [MIL-005]: ./milestones/mil-005-docs-and-wiki.md
+[08a6fcc]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/08a6fcc2c14667fa77bf15d126c00b34200252b5
