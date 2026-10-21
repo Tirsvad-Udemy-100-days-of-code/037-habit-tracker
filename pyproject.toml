@@ -1,0 +1,70 @@
+# Project configuration for the Habit Tracker (Pixela assignment of the
+# Udemy course "100 Days of Code"). Read by pip, setuptools, pytest, ruff,
+# mypy and coverage. Decision: ADR-0001 (requests is the one runtime dependency).
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "habit-tracker"
+version = "0.1.0"
+description = "Track a habit with the Pixela HTTP API: create a user, create a graph, post a pixel."
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "AGPL-3.0-or-later" }
+authors = [{ name = "Jens Tirsvad Nielsen" }]
+keywords = ["pixela", "habit-tracker", "requests", "100-days-of-code"]
+classifiers = [
+    "Programming Language :: Python :: 3.13",
+    "Environment :: Console",
+]
+dependencies = [
+    "requests>=2.32,<3",
+]
+
+[project.optional-dependencies]
+# ruff and mypy are pinned to the versions of the shared quality workflow.
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=5.0",
+    "ruff==0.6.9",
+    "mypy==1.11.2",
+    "types-requests>=2.32",
+]
+
+[project.scripts]
+habit-tracker = "habit_tracker.presentation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.coverage.run]
+source = ["habit_tracker"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "N"]
+
+[tool.mypy]
+strict = true
+mypy_path = "src"
+python_version = "3.13"
+
+# The shared quality workflow runs mypy without installing the dependencies.
+[[tool.mypy.overrides]]
+module = ["requests", "requests.*", "pytest", "pytest.*"]
+ignore_missing_imports = true
