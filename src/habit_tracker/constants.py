@@ -69,3 +69,26 @@ VALUE_NO = "no"
 
 ## @brief Text printed instead of the token when a request is shown.
 HIDDEN_TOKEN = "********"
+
+## @brief Pattern of a valid Pixela username: a lower case letter, then 1 to 32
+#  lower case letters, digits or hyphens.
+USERNAME_PATTERN = r"[a-z][a-z0-9-]{1,32}"
+
+## @brief Pattern of a valid Pixela token: 8 to 128 printable ASCII characters
+#  without a space.
+TOKEN_PATTERN = r"[\x21-\x7e]{8,128}"
+
+## @brief Name of the command line program.
+PROGRAM_NAME = "habit-tracker"
+
+## @brief Exit code: the request was sent and Pixela accepted it.
+EXIT_OK = 0
+
+## @brief Exit code: Pixela answered and refused the request.
+EXIT_REJECTED = 1
+
+## @brief Exit code: the input or the configuration is invalid; nothing was sent.
+EXIT_INVALID = 2
+
+## @brief Exit code: Pixela could not be reached.
+EXIT_UNREACHABLE = 3
