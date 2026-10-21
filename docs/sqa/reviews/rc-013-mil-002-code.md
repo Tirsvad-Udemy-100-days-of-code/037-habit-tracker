@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | pending |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [725e63f] |
 
 ---
 
@@ -59,3 +59,4 @@ Go — All Mandatory criteria of QC-PY-001 pass.
 
 [MIL-002]: ../../milestones/mil-002-create-user.md
 [QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
+[725e63f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/725e63fa8a55c1c4987b1ade4f9480f0602afd27
