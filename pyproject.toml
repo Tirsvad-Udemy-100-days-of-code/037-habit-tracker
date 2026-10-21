@@ -24,13 +24,15 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-# ruff and mypy are pinned to the versions of the shared quality workflow.
+# Every development tool is pinned; ruff and mypy match the shared quality workflow.
 dev = [
-    "pytest>=8.3",
-    "pytest-cov>=5.0",
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
     "ruff==0.6.9",
     "mypy==1.11.2",
-    "types-requests>=2.32",
+    "types-requests==2.33.0.20261006",
+    "pyyaml==6.0.3",
+    "types-pyyaml==6.0.12.20260906",
 ]
 
 [project.scripts]
@@ -66,5 +68,5 @@ python_version = "3.13"
 
 # The shared quality workflow runs mypy without installing the dependencies.
 [[tool.mypy.overrides]]
-module = ["requests", "requests.*", "pytest", "pytest.*"]
+module = ["requests", "requests.*", "pytest", "pytest.*", "yaml", "yaml.*"]
 ignore_missing_imports = true
