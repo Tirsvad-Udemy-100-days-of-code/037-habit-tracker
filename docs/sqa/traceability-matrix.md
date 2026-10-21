@@ -4,13 +4,13 @@
 | Key | Value |
 | --- | --- |
 | ID | TM-001 |
-| CrossReference | [BC-001], [SA-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [ADR-0001], [ADR-0002], [RC-001], [RC-002], [RC-003], [RC-004], [RC-005], [RC-006], [RC-007], [RC-008], [RC-009], [RC-010], [RC-011], [RC-012], [RC-013], [RC-014] |
+| CrossReference | [BC-001], [SA-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [ADR-0001], [ADR-0002], [RC-001], [RC-002], [RC-003], [RC-004], [RC-005], [RC-006], [RC-007], [RC-008], [RC-009], [RC-010], [RC-011], [RC-012], [RC-013], [RC-014], [RC-015] |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-013 for MIL-002 | [725e63f] |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-014 for MIL-003 | [e6fef2e] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-014 for MIL-003 | [e6fef2e] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-015 for MIL-004 | pending |
 
 ---
 
@@ -30,7 +30,7 @@ updated whenever an artifact instance is created or reviewed.
 | [MIL-001] | MIL | en | it | [BC-001], [PP-001] | [MIL-002] | [RC-003], [RC-010], [RC-011], [RC-012] |
 | [MIL-002] | MIL | en | it | [BC-001], [PP-001], [MIL-001] | [MIL-003] | [RC-004], [RC-013] |
 | [MIL-003] | MIL | en | it | [BC-001], [PP-001], [MIL-002] | [MIL-004] | [RC-005], [RC-014] |
-| [MIL-004] | MIL | en | it | [BC-001], [PP-001], [MIL-003] | [MIL-005] | [RC-006] |
+| [MIL-004] | MIL | en | it | [BC-001], [PP-001], [MIL-003] | [MIL-005] | [RC-006], [RC-015] |
 | [MIL-005] | MIL | en | it | [BC-001], [PP-001], [MIL-004] | - | [RC-007] |
 | [ADR-0001] | ADR | - | - | [BC-001], [SA-001] | [MIL-002] | [RC-008] |
 | [ADR-0002] | ADR | - | - | [BC-001] | [MIL-002], [MIL-003], [MIL-004] | [RC-009] |
@@ -66,6 +66,6 @@ updated whenever an artifact instance is created or reviewed.
 [RC-011]: ./reviews/rc-011-mil-001-yaml.md
 [RC-012]: ./reviews/rc-012-mil-001-workflows.md
 [RC-013]: ./reviews/rc-013-mil-002-code.md
-[725e63f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/725e63fa8a55c1c4987b1ade4f9480f0602afd27
 [RC-014]: ./reviews/rc-014-mil-003-code.md
 [e6fef2e]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/e6fef2e5bd8da31689a5b2c006a46d1f80b9c5b7
+[RC-015]: ./reviews/rc-015-mil-004-code.md

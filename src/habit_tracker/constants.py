@@ -25,6 +25,16 @@ ENV_TOKEN = "PIXELA_TOKEN"
 ## @brief Format of a pixel date: four digit year, month and day, no separator.
 DATE_FORMAT = "%Y%m%d"
 
+## @brief Format of a date typed by the user: year, month and day with hyphens.
+INPUT_DATE_FORMAT = "%Y-%m-%d"
+
+## @brief Pattern of a date typed by the user: `YYYY-MM-DD` or `YYYYMMDD`.
+INPUT_DATE_PATTERN = r"\d{4}-\d{2}-\d{2}|\d{8}"
+
+## @brief Pattern of a pixel quantity: an optional sign, digits and an optional
+#  decimal part; no exponent, no `nan` and no `inf`.
+QUANTITY_PATTERN = r"[+-]?(\d+(\.\d*)?|\.\d+)"
+
 ## @brief Seconds to wait for the Pixela API before the request is given up.
 REQUEST_TIMEOUT_SECONDS = 10
 

@@ -34,12 +34,14 @@ from habit_tracker.presentation.commands.create_graph_command import (
     CreateGraphCommand,
 )
 from habit_tracker.presentation.commands.create_user_command import CreateUserCommand
+from habit_tracker.presentation.commands.post_pixel_command import PostPixelCommand
 from habit_tracker.presentation.shared.output import write_response
 
 ## @brief The commands of the program, one per use case.
 COMMANDS: tuple[Command, ...] = (
     CreateUserCommand(),
     CreateGraphCommand(),
+    PostPixelCommand(),
 )
 
 

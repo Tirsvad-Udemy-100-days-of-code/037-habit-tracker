@@ -193,6 +193,83 @@ def test_create_graph_sends_the_chosen_type_and_color() -> None:
     assert (body["type"], body["color"]) == ("int", "kuro")
 
 
+PIXEL_ARGS = [
+    "post-pixel",
+    "--graph-id",
+    "cycling",
+    "--date",
+    "2026-10-22",
+    "--quantity",
+    "9.74",
+]
+
+
+def test_post_pixel_dry_run_prints_the_request() -> None:
+    code, output = _run(["--dry-run", *PIXEL_ARGS], ENVIRON)
+    assert code == EXIT_OK
+    assert "POST https://pixe.la/v1/users/jens-test/graphs/cycling" in output
+    assert '"date": "20261022"' in output
+    assert '"quantity": "9.74"' in output
+
+
+def test_post_pixel_dry_run_masks_the_token() -> None:
+    _, output = _run(["--dry-run", *PIXEL_ARGS], ENVIRON)
+    assert SECRET not in output
+    assert "X-USER-TOKEN: ********" in output
+
+
+def test_post_pixel_returns_ok_when_the_server_accepts() -> None:
+    with running_server(200, "Success.") as server:
+        code, output = _run(PIXEL_ARGS, ENVIRON, server.base_url)
+        request = server.requests[0]
+    assert code == EXIT_OK
+    assert "Success (200): Success." in output
+    assert request.headers["x-user-token"] == SECRET
+    assert request.body == {"date": "20261022", "quantity": "9.74"}
+
+
+def test_post_pixel_returns_rejected_when_the_server_answers_404() -> None:
+    with running_server(404, "Graph not found.") as server:
+        code, output = _run(PIXEL_ARGS, ENVIRON, server.base_url)
+    assert code == EXIT_REJECTED
+    assert "Rejected (404): Graph not found." in output
+
+
+def test_post_pixel_output_never_contains_the_token() -> None:
+    with running_server() as server:
+        _, output = _run(PIXEL_ARGS, ENVIRON, server.base_url)
+    assert SECRET not in output
+
+
+def test_post_pixel_returns_invalid_and_sends_nothing_when_date_is_invalid() -> None:
+    args = ["post-pixel", "--graph-id", "cycling", "--date", "2026-13-40"]
+    with running_server() as server:
+        code, output = _run([*args, "--quantity", "1"], ENVIRON, server.base_url)
+        assert (code, server.requests) == (EXIT_INVALID, [])
+    assert "date" in output
+
+
+def test_post_pixel_returns_invalid_and_sends_nothing_when_quantity_is_text() -> None:
+    args = ["post-pixel", "--graph-id", "cycling", "--date", "2026-10-22"]
+    with running_server() as server:
+        code, output = _run([*args, "--quantity", "abc"], ENVIRON, server.base_url)
+        assert (code, server.requests) == (EXIT_INVALID, [])
+    assert "quantity" in output
+
+
+def test_post_pixel_returns_invalid_and_sends_nothing_when_graph_id_is_bad() -> None:
+    args = ["post-pixel", "--graph-id", "Bad Id", "--date", "2026-10-22"]
+    with running_server() as server:
+        code, _ = _run([*args, "--quantity", "1"], ENVIRON, server.base_url)
+        assert (code, server.requests) == (EXIT_INVALID, [])
+
+
+def test_all_three_commands_return_ok_in_dry_run_mode_in_sequence() -> None:
+    sequence = [["create-user"], GRAPH_ARGS, PIXEL_ARGS]
+    codes = [_run(["--dry-run", *argv], ENVIRON)[0] for argv in sequence]
+    assert codes == [EXIT_OK, EXIT_OK, EXIT_OK]
+
+
 def test_unreachable_server_returns_unreachable() -> None:
     code, output = _run(["create-user"], ENVIRON, unused_base_url())
     assert code == EXIT_UNREACHABLE
