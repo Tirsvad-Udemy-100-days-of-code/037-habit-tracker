@@ -1,0 +1,133 @@
+"""@file test_cli.py
+@brief End-to-end tests of the command line, from arguments to exit code.
+"""
+
+import runpy
+import sys
+from io import StringIO
+
+import pytest
+
+from habit_tracker.constants import (
+    EXIT_INVALID,
+    EXIT_OK,
+    EXIT_REJECTED,
+    EXIT_UNREACHABLE,
+    PIXELA_BASE_URL,
+)
+from habit_tracker.presentation.cli import main
+from tests.integration.local_pixela_server import running_server, unused_base_url
+
+SECRET = "abcdefgh12345"
+ENVIRON = {"PIXELA_USERNAME": "jens-test", "PIXELA_TOKEN": SECRET}
+
+
+def _run(
+    argv: list[str], environ: dict[str, str], base_url: str = PIXELA_BASE_URL
+) -> tuple[int, str]:
+    """@brief Run the program and return the exit code and the output."""
+    out = StringIO()
+    code = main(argv, environ, out, base_url)
+    return code, out.getvalue()
+
+
+def test_dry_run_returns_ok() -> None:
+    code, _ = _run(["--dry-run", "create-user"], ENVIRON)
+    assert code == EXIT_OK
+
+
+def test_dry_run_prints_the_request() -> None:
+    _, output = _run(["--dry-run", "create-user"], ENVIRON)
+    assert "POST https://pixe.la/v1/users" in output
+    assert '"username": "jens-test"' in output
+
+
+def test_dry_run_hides_the_token() -> None:
+    _, output = _run(["--dry-run", "create-user"], ENVIRON)
+    assert SECRET not in output
+
+
+def test_dry_run_sends_nothing() -> None:
+    with running_server() as server:
+        _run(["--dry-run", "create-user"], ENVIRON, server.base_url)
+        assert server.requests == []
+
+
+def test_dry_run_shows_yes_when_the_consent_flags_are_given() -> None:
+    _, output = _run(
+        ["--dry-run", "create-user", "--agree-terms", "--not-minor"], ENVIRON
+    )
+    assert '"agreeTermsOfService": "yes"' in output
+    assert '"notMinor": "yes"' in output
+
+
+def test_dry_run_shows_no_when_the_consent_flags_are_missing() -> None:
+    _, output = _run(["--dry-run", "create-user"], ENVIRON)
+    assert '"agreeTermsOfService": "no"' in output
+
+
+def test_missing_environment_variable_returns_invalid() -> None:
+    code, output = _run(["create-user"], {"PIXELA_USERNAME": "jens-test"})
+    assert code == EXIT_INVALID
+    assert "PIXELA_TOKEN" in output
+
+
+def test_invalid_token_returns_invalid() -> None:
+    code, _ = _run(["create-user"], {**ENVIRON, "PIXELA_TOKEN": "short"})
+    assert code == EXIT_INVALID
+
+
+def test_invalid_token_is_never_printed() -> None:
+    _, output = _run(["create-user"], {**ENVIRON, "PIXELA_TOKEN": "bad token"})
+    assert "bad token" not in output
+
+
+def test_invalid_username_returns_invalid_and_sends_nothing() -> None:
+    with running_server() as server:
+        code, _ = _run(
+            ["create-user"],
+            {**ENVIRON, "PIXELA_USERNAME": "Bad Name"},
+            server.base_url,
+        )
+        assert (code, server.requests) == (EXIT_INVALID, [])
+
+
+def test_create_user_returns_ok_when_the_server_accepts() -> None:
+    with running_server(200, "Success.") as server:
+        code, output = _run(["create-user"], ENVIRON, server.base_url)
+    assert code == EXIT_OK
+    assert "Success (200): Success." in output
+
+
+def test_create_user_returns_rejected_when_the_server_answers_409() -> None:
+    with running_server(409, "This username is already taken.") as server:
+        code, output = _run(["create-user"], ENVIRON, server.base_url)
+    assert code == EXIT_REJECTED
+    assert "Rejected (409): This username is already taken." in output
+
+
+def test_create_user_output_never_contains_the_token() -> None:
+    with running_server() as server:
+        _, output = _run(["create-user"], ENVIRON, server.base_url)
+    assert SECRET not in output
+
+
+def test_unreachable_server_returns_unreachable() -> None:
+    code, output = _run(["create-user"], ENVIRON, unused_base_url())
+    assert code == EXIT_UNREACHABLE
+    assert SECRET not in output
+
+
+def test_main_writes_to_standard_output_when_no_stream_is_given() -> None:
+    assert main(["--dry-run", "create-user"], ENVIRON) == EXIT_OK
+
+
+def test_module_entry_point_exits_with_the_exit_code(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(sys, "argv", ["habit_tracker", "--dry-run", "create-user"])
+    monkeypatch.setenv("PIXELA_USERNAME", "jens-test")
+    monkeypatch.setenv("PIXELA_TOKEN", SECRET)
+    with pytest.raises(SystemExit) as info:
+        runpy.run_module("habit_tracker", run_name="__main__")
+    assert info.value.code == EXIT_OK

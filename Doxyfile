@@ -18,11 +18,10 @@ JAVADOC_AUTOBRIEF      = YES
 AUTOLINK_SUPPORT       = YES
 
 # Input
-INPUT                  = src README.md
-FILE_PATTERNS          = *.py *.md
+INPUT                  = src
+FILE_PATTERNS          = *.py
 RECURSIVE              = YES
 EXCLUDE_PATTERNS       = */__pycache__/* */.venv/*
-USE_MDFILE_AS_MAINPAGE = README.md
 
 # Output
 GENERATE_HTML          = YES
