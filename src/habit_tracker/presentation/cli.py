@@ -30,11 +30,17 @@ from habit_tracker.infrastructure.http.requests_pixela_gateway import (
     RequestsPixelaGateway,
 )
 from habit_tracker.presentation.commands.command import Command
+from habit_tracker.presentation.commands.create_graph_command import (
+    CreateGraphCommand,
+)
 from habit_tracker.presentation.commands.create_user_command import CreateUserCommand
 from habit_tracker.presentation.shared.output import write_response
 
 ## @brief The commands of the program, one per use case.
-COMMANDS: tuple[Command, ...] = (CreateUserCommand(),)
+COMMANDS: tuple[Command, ...] = (
+    CreateUserCommand(),
+    CreateGraphCommand(),
+)
 
 
 def build_parser(commands: Sequence[Command]) -> argparse.ArgumentParser:

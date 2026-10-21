@@ -6,6 +6,7 @@ infrastructure and presentation. The functions of the assignment are exported
 here.
 """
 
+from habit_tracker.application.use_cases.create_graph import create_graph
 from habit_tracker.application.use_cases.create_user import create_user
 
-__all__ = ["create_user"]
+__all__ = ["create_graph", "create_user"]
