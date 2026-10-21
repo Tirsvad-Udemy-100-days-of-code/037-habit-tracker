@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | pending |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [9bcbccb] |
 
 ---
 
@@ -56,3 +56,4 @@ Go — All Mandatory criteria of QC-YML-001 pass.
 
 [MIL-005]: ../../milestones/mil-005-docs-and-wiki.md
 [QC-YML-001]: ../../../framework/qc/code/qc-yaml.md
+[9bcbccb]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/9bcbccb233e7c7c8a4ec84afcc93a44e666fe715

@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | S01 (accepted in chat) | Initial version | [08a6fcc] |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Final state: milestone links, open issues of the wiki | pending |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Final state: milestone links, open issues of the wiki | [9bcbccb] |
 
 ---
 
@@ -104,3 +104,4 @@ A No-Go on a gateway moves every later date by the time of the rework; the end d
 [MIL-003 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/225
 [MIL-004 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/226
 [MIL-005 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/227
+[9bcbccb]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/9bcbccb233e7c7c8a4ec84afcc93a44e666fe715
