@@ -25,7 +25,7 @@ The project follows the three lecture steps of the assignment, each a POST reque
 | --- | --- |
 | `src/habit_tracker/` | The package. `constants.py` holds every constant; the layers `domain`, `application`, `infrastructure` and `presentation` follow Clean Architecture |
 | `tests/` | The pytest tests (`unit`, `integration`, `e2e`); none of them reaches an external host |
-| `docs/` | The plan, the reviews and the wiki sources |
+| `docs/` | The plan, the reviews, the screenshots (`docs/images/`) and the wiki sources (`docs/wiki/`, in English, Danish and Bahasa Malaysia) |
 | `pyproject.toml` | Project configuration: dependencies, pytest, ruff, mypy |
 | `Doxyfile` | Configuration of the Doxygen source documentation |
 
@@ -73,7 +73,31 @@ In PowerShell use `$env:PIXELA_USERNAME = "your-username"` and `$env:PIXELA_TOKE
 
 ## ▶️ Run
 
-The three commands arrive with the milestones MIL-002 (create user), MIL-003 (create graph) and MIL-004 (post pixel) of the [project plan][PP-001]. Until then the package holds only its constants.
+Every command reads `PIXELA_USERNAME` and `PIXELA_TOKEN` from the environment. Add `--dry-run` before the command name to print the request, with the token hidden, and send nothing. Remove it to send the request to Pixela.
+
+| Step of the assignment | Command | Python function |
+| --- | --- | --- |
+| 1. Create the user | `python -m habit_tracker create-user --agree-terms --not-minor` | `create_user` |
+| 2. Create a graph | `python -m habit_tracker create-graph --id cycling --name "Cycling Graph" --unit Km --type float --color ajisai` | `create_graph` |
+| 3. Post a pixel | `python -m habit_tracker post-pixel --graph-id cycling --date 2026-10-22 --quantity 9.74` | `post_pixel` |
+
+The colours are the Pixela names `shibafu`, `momiji`, `sora`, `ichou`, `ajisai` and `kuro`. The date is `YYYY-MM-DD` or `YYYYMMDD`; Pixela receives `YYYYMMDD`. A taken username makes `create-user` print `Rejected (409)` and exit with code 1.
+
+The installed program is also available as `habit-tracker`, for example `habit-tracker --dry-run create-user --agree-terms --not-minor`.
+
+The functions can be used from Python as well:
+
+```python
+from habit_tracker import create_graph, create_user, post_pixel
+```
+
+Each takes a gateway (`RequestsPixelaGateway` or `DryRunPixelaGateway`), the credentials and the data of the step; the [wiki][wiki] shows an example.
+
+![Create user in dry-run mode][shot-user]
+
+![Create graph in dry-run mode][shot-graph]
+
+![Post pixel in dry-run mode][shot-pixel]
 
 ## 🧪 Tests
 
@@ -92,6 +116,8 @@ python -m mypy --strict src tests
 ```
 
 Build the source documentation with `doxygen Doxyfile`; the result is in `doxygen/html/index.html`.
+
+![The test run][shot-tests]
 
 ## 📄 License
 
@@ -123,7 +149,7 @@ The documents a newcomer needs, in reading order.
 
 ### CI secrets
 
-The workflows in `.gitea/workflows/` call the shared workflows of `TirSystem/github-action`. The quality checks and the English comments check need no secret. The wiki publishing (added with the wiki) needs the secret `TOKEN_FOR_GITEA_WIKI` in the organisation of the repository.
+The workflows in `.gitea/workflows/` call the shared workflows of `TirSystem/github-action`. The quality checks and the English comments check need no secret. The wiki publishing (`publish-wiki.yml`) needs the secret `TOKEN_FOR_GITEA_WIKI` in the organisation of the repository: a Gitea token with the scope `write:repository` for a user who can write this repository. Enable the wiki in the repository settings.
 
 ---
 
@@ -132,6 +158,11 @@ The workflows in `.gitea/workflows/` call the shared workflows of `TirSystem/git
 [issues]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/issues
 [pixela-docs]: https://docs.pixe.la/
 [doxygen]: https://www.doxygen.nl/
+[wiki]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/wiki
+[shot-user]: ./docs/images/create-user-dry-run.png
+[shot-graph]: ./docs/images/create-graph-dry-run.png
+[shot-pixel]: ./docs/images/post-pixel-dry-run.png
+[shot-tests]: ./docs/images/tests.png
 [license]: ./LICENSE
 [agents]: ./AGENTS.md
 [BC-001]: ./docs/business-case.md

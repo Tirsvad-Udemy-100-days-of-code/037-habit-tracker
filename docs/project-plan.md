@@ -11,7 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | S01 (accepted in chat) | Initial version | [08a6fcc] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | S01 (accepted in chat) | Initial version | [08a6fcc] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Final state: milestone links, open issues of the wiki | pending |
 
 ---
 
@@ -30,11 +31,11 @@ The plan schedules the five gateways that take the Habit Tracker from an empty r
 
 | Gateway | Document | Window | Decision date | Owner | Stories | Main deliverable | Milestone |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Project setup and tooling | [MIL-001] | 2026-10-22 to 2026-10-23 | 2026-10-23 | S01 | none (ADR-0002) | pyproject, .gitignore, Doxyfile, constants.py, first README, workflows, description and topics | |
-| Create user | [MIL-002] | 2026-10-23 to 2026-10-24 | 2026-10-24 | S01 | none (ADR-0002) | `create_user`, layers, adapters, create-user command | |
-| Create graph | [MIL-003] | 2026-10-24 to 2026-10-25 | 2026-10-25 | S01 | none (ADR-0002) | `create_graph`, create-graph command | |
-| Post pixel | [MIL-004] | 2026-10-25 to 2026-10-26 | 2026-10-26 | S01 | none (ADR-0002) | `post_pixel`, post-pixel command | |
-| Documentation and wiki | [MIL-005] | 2026-10-26 to 2026-10-28 | 2026-10-28 | S01 | none (ADR-0002) | README, screenshots, wiki in three languages, Doxygen | |
+| Project setup and tooling | [MIL-001] | 2026-10-22 to 2026-10-23 | 2026-10-23 | S01 | none (ADR-0002) | pyproject, .gitignore, Doxyfile, constants.py, first README, workflows, description and topics | [MIL-001 milestone] |
+| Create user | [MIL-002] | 2026-10-23 to 2026-10-24 | 2026-10-24 | S01 | none (ADR-0002) | `create_user`, layers, adapters, create-user command | [MIL-002 milestone] |
+| Create graph | [MIL-003] | 2026-10-24 to 2026-10-25 | 2026-10-25 | S01 | none (ADR-0002) | `create_graph`, create-graph command | [MIL-003 milestone] |
+| Post pixel | [MIL-004] | 2026-10-25 to 2026-10-26 | 2026-10-26 | S01 | none (ADR-0002) | `post_pixel`, post-pixel command | [MIL-004 milestone] |
+| Documentation and wiki | [MIL-005] | 2026-10-26 to 2026-10-28 | 2026-10-28 | S01 | none (ADR-0002) | README, screenshots, wiki in three languages, Doxygen | [MIL-005 milestone] |
 
 ```plantuml
 @startgantt
@@ -84,6 +85,8 @@ A No-Go on a gateway moves every later date by the time of the rework; the end d
 ## Open Issues
 
 - Whether the shared workflows should also be installed on the GitHub mirror is left to S01.
+- The secret `TOKEN_FOR_GITEA_WIKI` is not set by the AI; S01 sets it in the organisation before the wiki can be published.
+- The Danish and Bahasa Malaysia wiki pages were written by the AI and are not yet read by a person who reads those languages.
 - No real Pixela account is created for screenshots; the screenshots show the dry run and the tests.
 
 ---
@@ -96,3 +99,8 @@ A No-Go on a gateway moves every later date by the time of the rework; the end d
 [MIL-004]: ./milestones/mil-004-post-pixel.md
 [MIL-005]: ./milestones/mil-005-docs-and-wiki.md
 [08a6fcc]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/08a6fcc2c14667fa77bf15d126c00b34200252b5
+[MIL-001 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/223
+[MIL-002 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/224
+[MIL-003 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/225
+[MIL-004 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/226
+[MIL-005 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/227
