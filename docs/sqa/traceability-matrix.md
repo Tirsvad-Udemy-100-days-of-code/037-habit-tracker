@@ -4,12 +4,13 @@
 | Key | Value |
 | --- | --- |
 | ID | TM-001 |
-| CrossReference | [BC-001], [SA-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [ADR-0001], [ADR-0002], [RC-001], [RC-002], [RC-003], [RC-004], [RC-005], [RC-006], [RC-007], [RC-008], [RC-009] |
+| CrossReference | [BC-001], [SA-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [ADR-0001], [ADR-0002], [RC-001], [RC-002], [RC-003], [RC-004], [RC-005], [RC-006], [RC-007], [RC-008], [RC-009], [RC-010], [RC-011], [RC-012] |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-010, RC-011, RC-012 for MIL-001 | [3118214] |
 
 ---
 
@@ -26,7 +27,7 @@ updated whenever an artifact instance is created or reviewed.
 | [BC-001] | BC | en | it | - | [SA-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005] | [RC-001] |
 | [SA-001] | SA | en | it | [BC-001] | [BC-001], [PP-001] | [RC-002] |
 | [PP-001] | PP | en | it | [BC-001], [SA-001] | [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005] | - |
-| [MIL-001] | MIL | en | it | [BC-001], [PP-001] | [MIL-002] | [RC-003] |
+| [MIL-001] | MIL | en | it | [BC-001], [PP-001] | [MIL-002] | [RC-003], [RC-010], [RC-011], [RC-012] |
 | [MIL-002] | MIL | en | it | [BC-001], [PP-001], [MIL-001] | [MIL-003] | [RC-004] |
 | [MIL-003] | MIL | en | it | [BC-001], [PP-001], [MIL-002] | [MIL-004] | [RC-005] |
 | [MIL-004] | MIL | en | it | [BC-001], [PP-001], [MIL-003] | [MIL-005] | [RC-006] |
@@ -62,3 +63,7 @@ updated whenever an artifact instance is created or reviewed.
 [RC-008]: ./reviews/rc-008-adr-0001.md
 [RC-009]: ./reviews/rc-009-adr-0002.md
 [08a6fcc]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/08a6fcc2c14667fa77bf15d126c00b34200252b5
+[RC-010]: ./reviews/rc-010-mil-001-code.md
+[RC-011]: ./reviews/rc-011-mil-001-yaml.md
+[RC-012]: ./reviews/rc-012-mil-001-workflows.md
+[3118214]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/3118214a7bf94f6ca738a0b254a0de73304a0d80
