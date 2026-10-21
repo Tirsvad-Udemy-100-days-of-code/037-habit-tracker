@@ -9,7 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-010, RC-011, RC-012 for MIL-001 | pending |
 
 ---
 
