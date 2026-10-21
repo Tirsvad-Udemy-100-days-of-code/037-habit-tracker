@@ -10,7 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-014 for MIL-003 | [e6fef2e] |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-015 for MIL-004 | pending |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-015 for MIL-004 | [907a4c1] |
 
 ---
 
@@ -69,3 +69,4 @@ updated whenever an artifact instance is created or reviewed.
 [RC-014]: ./reviews/rc-014-mil-003-code.md
 [e6fef2e]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/e6fef2e5bd8da31689a5b2c006a46d1f80b9c5b7
 [RC-015]: ./reviews/rc-015-mil-004-code.md
+[907a4c1]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/907a4c13bd3a4247f678d0dbb2fce538c5722501
