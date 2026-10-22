@@ -11,8 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | S01 (accepted in chat) | Initial version | [08a6fcc] |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Final state: milestone links, open issues of the wiki | [9bcbccb] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Final state: milestone links, open issues of the wiki | [9bcbccb] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Open issue: S01 accepted the Danish and Bahasa Malaysia wiki translations | pending |
 
 ---
 
@@ -86,7 +86,7 @@ A No-Go on a gateway moves every later date by the time of the rework; the end d
 
 - Whether the shared workflows should also be installed on the GitHub mirror is left to S01.
 - The secret `TOKEN_FOR_GITEA_WIKI` is not set by the AI; S01 sets it in the organisation before the wiki can be published.
-- The Danish and Bahasa Malaysia wiki pages were written by the AI and are not yet read by a person who reads those languages.
+- The Danish and Bahasa Malaysia wiki pages were written by the AI. S01 accepted them in chat on 2026-10-22; no native-speaker review is recorded.
 - No real Pixela account is created for screenshots; the screenshots show the dry run and the tests.
 
 ---
@@ -98,7 +98,6 @@ A No-Go on a gateway moves every later date by the time of the rework; the end d
 [MIL-003]: ./milestones/mil-003-create-graph.md
 [MIL-004]: ./milestones/mil-004-post-pixel.md
 [MIL-005]: ./milestones/mil-005-docs-and-wiki.md
-[08a6fcc]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/08a6fcc2c14667fa77bf15d126c00b34200252b5
 [MIL-001 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/223
 [MIL-002 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/224
 [MIL-003 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/225
