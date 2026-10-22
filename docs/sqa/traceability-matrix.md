@@ -9,8 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-023 for MIL-004 | pending |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-024 for MIL-005 | pending |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-023 for MIL-004 | [7f06a77] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-024 for MIL-005 | [7f06a77] |
 
 ---
 
@@ -77,3 +77,4 @@ updated whenever an artifact instance is created or reviewed.
 [RC-022]: ./reviews/rc-022-mil-003-create-graph-delta.md
 [RC-023]: ./reviews/rc-023-mil-004-post-pixel-delta.md
 [RC-024]: ./reviews/rc-024-mil-005-docs-and-wiki-delta.md
+[7f06a77]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/7f06a776d218cf5d350b0a4f53708e9ff336e034
