@@ -11,13 +11,14 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Spelled out abbreviations on first use (QC-LANG-001 criterion 10) | pending |
 
 ---
 
 ## Purpose
 
-This gate decides whether the first lecture step, creating a Pixela user with a POST request, works and whether the layers that every later step reuses (domain rules, the gateway port, the HTTP adapter, the command line) are sound.
+This gate decides whether the first lecture step, creating a Pixela user with a POST (data-sending HTTP method) request, works and whether the layers that every later step reuses (domain rules, the gateway port, the HTTP (Hypertext Transfer Protocol) adapter, the command line) are sound.
 
 ## Deliverable
 
@@ -28,7 +29,7 @@ A `create_user` function and a `create-user` command that send the Pixela user r
 | # | Criterion (objectively checkable) | Go | No-Go |
 | --- | --- | --- | --- |
 | 1 | `from habit_tracker import create_user` works | Imports | ImportError |
-| 2 | A test shows that `create_user` sends a POST to `https://pixe.la/v1/users` with token, username, `agreeTermsOfService` and `notMinor` in the JSON body | Pass | Fail |
+| 2 | A test shows that `create_user` sends a POST to `https://pixe.la/v1/users` with token, username, `agreeTermsOfService` and `notMinor` in the JSON (JavaScript Object Notation) body | Pass | Fail |
 | 3 | A test shows that an invalid username or token is rejected before any request is sent | Pass | Fail |
 | 4 | A test shows that a response with status 409 (name already taken) is returned as a failed result, not raised | Pass | Fail |
 | 5 | `python -m habit_tracker --dry-run create-user ...` prints the request with the token hidden and sends nothing | Token hidden | Token printed |
@@ -64,7 +65,7 @@ A `create_user` function and a `create-user` command that send the Pixela user r
 
 | # | Task | Summary | Needs its own Use Case/User Story? | Reference |
 | --- | --- | --- | --- | --- |
-| 1 | Add domain value objects and errors | Add `Username`, `Token` and `Credentials` value objects in `domain/` that enforce the Pixela rules (username 2 to 33 characters starting with a lower case letter, token 8 to 128 characters without spaces) and an `InvalidInputError`, so bad input is stopped before a request. | No | ADR-0002 |
+| 1 | Add domain value objects and errors | Add `Username`, `Token` and `Credentials` value objects in `domain/` that enforce the Pixela rules (username 2 to 33 characters starting with a lower case letter, token 8 to 128 characters without spaces) and an `InvalidInputError`, so bad input is stopped before a request. | No | ADR-0002 (Architecture Decision Record) |
 | 2 | Add PixelaGateway port and response DTO | Define in `application/ports/` the narrow `PixelaGateway` protocol (send one JSON POST with headers) and in `application/dto/` the `ApiResponse` that holds the status code and the Pixela message, so use cases do not depend on `requests`. | No | ADR-0002 |
 | 3 | Implement create_user use case | Add `create_user(gateway, credentials, agree_terms, not_minor)` in `application/use_cases/` that builds the body of the lecture and returns the `ApiResponse`; this is the first assignment function. | No | ADR-0002 |
 | 4 | Add requests gateway and dry-run gateway | Implement `PixelaGateway` with `requests` in `infrastructure/http/` (with a timeout and no exception for a 4xx answer) and a dry-run gateway that prints the request with the token hidden. | No | ADR-0001 |

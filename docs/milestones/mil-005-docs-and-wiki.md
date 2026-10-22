@@ -11,7 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Spelled out abbreviations on first use (QC-LANG-001 criterion 10) | pending |
 
 ---
 
@@ -33,7 +34,7 @@ The final README with screenshots, the wiki pages under `docs/wiki/` in three la
 | 4 | Every wiki page starts with the language line and `_Sidebar.md` lists all languages | Present | Missing |
 | 5 | `doxygen Doxyfile` finishes with no warning | 0 warnings | Any warning |
 | 6 | The README tells how to run the project and its tests from a clean clone, and the commands were run as written | Verified | Not verified |
-| 7 | `.gitea/workflows/publish-wiki.yml` is installed and parses as YAML | Valid | Missing or invalid |
+| 7 | `.gitea/workflows/publish-wiki.yml` is installed and parses as YAML (a data format for configuration files) | Valid | Missing or invalid |
 | 8 | Test coverage of `src/` is at least 90 % | 90 % or more | Less |
 
 ## Dependencies

@@ -11,13 +11,14 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Spelled out abbreviations on first use (QC-LANG-001 criterion 10) | pending |
 
 ---
 
 ## Purpose
 
-The analysis names the people who influence or use the Habit Tracker and decides how closely each is involved. It uses the power/interest grid. The IDs below are the stable identifiers that every other document uses for owners, reviewers and RACI.
+The analysis names the people who influence or use the Habit Tracker and decides how closely each is involved. It uses the power/interest grid. The IDs below are the stable identifiers that every other document uses for owners, reviewers and RACI (responsible, accountable, consulted, informed).
 
 ## Stakeholder Summary Table
 
@@ -37,9 +38,11 @@ The brief for the project gave S03 "no runtime dependencies" as a need. The quad
 
 ## Primary Concerns and FURPS+ Mapping
 
+FURPS+ stands for functionality, usability, reliability, performance and supportability, plus design, implementation, interface and physical constraints.
+
 | ID | Concern | FURPS+ attribute |
 | --- | --- | --- |
-| S01 | Correct calls to the Pixela API, reviewable steps, reuse | Functionality, Supportability |
+| S01 | Correct calls to the Pixela API (application programming interface), reviewable steps, reuse | Functionality, Supportability |
 | S02 | Readable code, the assignment's function names, instructions that work | Usability, Functionality |
 | S02 | Code that runs without hidden setup | Usability |
 | S03 | Clear description, topics and README | Usability |
@@ -57,7 +60,7 @@ The brief for the project gave S03 "no runtime dependencies" as a need. The quad
 
 | Conflict | Stakeholders | Mitigation |
 | --- | --- | --- |
-| S03 wants no runtime dependencies, S02 wants code that uses `requests` as the lectures do | S02, S03 | S01 decided for `requests` (ADR-0001). It is the only runtime dependency, the README names it and gives the install command, and everything else is the standard library |
+| S03 wants no runtime dependencies, S02 wants code that uses `requests` as the lectures do | S02, S03 | S01 decided for `requests` (ADR-0001, an Architecture Decision Record). It is the only runtime dependency, the README names it and gives the install command, and everything else is the standard library |
 | S02 wants the code to look like the lecture, S01 wants layered, tested code | S01, S02 | The assignment's function names stay (`create_user`, `create_graph`, `post_pixel`) in one readable module of the application layer, and the layers are explained in the wiki |
 
 ## Traceability Analysis
