@@ -11,7 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Spelled out abbreviations on first use (QC-LANG-001 criterion 10) | [7f06a77] |
 
 ---
 
@@ -65,15 +66,16 @@ A repository with `pyproject.toml`, a Python `.gitignore`, a `Doxyfile`, the `ha
 
 | # | Task | Summary | Needs its own Use Case/User Story? | Reference |
 | --- | --- | --- | --- | --- |
-| 1 | Add pyproject.toml | Configure the project for Python 3.13 or later with a `src` layout, the one runtime dependency `requests` (ADR-0001), a `dev` extra with pytest, pytest-cov, ruff, mypy and types-requests, and the tool settings for ruff, mypy and pytest so that all checks run from one file. | No | ADR-0001 |
+| 1 | Add pyproject.toml | Configure the project for Python 3.13 or later with a `src` layout, the one runtime dependency `requests` (Architecture Decision Record ADR-0001), a `dev` extra with pytest, pytest-cov, ruff, mypy and types-requests, and the tool settings for ruff, mypy and pytest so that all checks run from one file. | No | ADR-0001 |
 | 2 | Add Python .gitignore | Ignore the virtual environment `.venv/`, byte code, caches, coverage output, build output, Doxygen output and the personal `.env`, so that no secret or generated file reaches the repository. | No | |
 | 3 | Add package skeleton with constants.py | Create `src/habit_tracker/` with `constants.py` for the Pixela endpoint, header and field names, the environment variable names and the date format, plus a first smoke test under `tests/unit/` so that pytest has something to run. | No | |
 | 4 | Add Doxyfile | Add a `Doxyfile` for Python that reads `src/`, writes to a git-ignored `doxygen/` folder and extracts the `@brief`, `@param` and `@return` comments the source uses. | No | |
 | 5 | Write first README with venv instructions | Use the framework README template and document how to create and use a local `.venv`, how to run `python -m pip install --upgrade pip`, how to install the project and how to run the tests. | No | |
 | 6 | Install shared quality workflows | Copy the Python quality checks, the English comments check and the code metrics workflow that call `TirSystem/github-action`, pinned to `@v1`, and list the secrets they need in the README. | No | |
-| 7 | Set repository description and topics | Set the description and the topics of the repository on git.tirsystem.com through its API, with the token read from the personal `.env` and never printed, so that S03 sees a clear repository page. | No | |
+| 7 | Set repository description and topics | Set the description and the topics of the repository on git.tirsystem.com through its API (application programming interface), with the token read from the personal `.env` and never printed, so that S03 sees a clear repository page. | No | |
 
 ---
 
 [BC-001]: ../business-case.md
 [08a6fcc]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/08a6fcc2c14667fa77bf15d126c00b34200252b5
+[7f06a77]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/7f06a776d218cf5d350b0a4f53708e9ff336e034

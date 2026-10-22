@@ -11,13 +11,14 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Spelled out abbreviations on first use (QC-LANG-001 criterion 10) | [7f06a77] |
 
 ---
 
 ## Purpose
 
-This gate decides whether the second lecture step, creating a graph with the token sent in an HTTP header, works and is safe: the token must travel in the `X-USER-TOKEN` header and never in the URL or the body.
+This gate decides whether the second lecture step, creating a graph with the token sent in an HTTP (Hypertext Transfer Protocol) header, works and is safe: the token must travel in the `X-USER-TOKEN` header and never in the URL or the body.
 
 ## Deliverable
 
@@ -28,7 +29,7 @@ A `create_graph` function and a `create-graph` command that send the Pixela grap
 | # | Criterion (objectively checkable) | Go | No-Go |
 | --- | --- | --- | --- |
 | 1 | `from habit_tracker import create_graph` works | Imports | ImportError |
-| 2 | A test shows that the request goes to `https://pixe.la/v1/users/<username>/graphs` with `id`, `name`, `unit`, `type` and `color` in the body | Pass | Fail |
+| 2 | A test shows that the request goes to `https://pixe.la/v1/users/<username>/graphs` (URL, uniform resource locator) with `id`, `name`, `unit`, `type` and `color` in the body | Pass | Fail |
 | 3 | A test shows that the token is in the `X-USER-TOKEN` header and not in the URL or the body | Pass | Fail |
 | 4 | A test shows that an invalid graph id, type or colour is rejected before any request is sent | Pass | Fail |
 | 5 | The accepted colours are the Pixela names `shibafu`, `momiji`, `sora`, `ichou`, `ajisai` and `kuro` | Exactly these | Any difference |
@@ -63,7 +64,7 @@ A `create_graph` function and a `create-graph` command that send the Pixela grap
 
 | # | Task | Summary | Needs its own Use Case/User Story? | Reference |
 | --- | --- | --- | --- | --- |
-| 1 | Add graph domain types | Add `GraphId`, `GraphType` and `GraphColor` (enums for the Pixela colour names `shibafu`, `momiji`, `sora`, `ichou`, `ajisai`, `kuro`) and a `Graph` value object in `domain/` with the Pixela id rule (lower case letter first, 1 to 16 characters of letters, digits and hyphen). | No | ADR-0002 |
+| 1 | Add graph domain types | Add `GraphId`, `GraphType` and `GraphColor` (enums for the Pixela colour names `shibafu`, `momiji`, `sora`, `ichou`, `ajisai`, `kuro`) and a `Graph` value object in `domain/` with the Pixela id rule (lower case letter first, 1 to 16 characters of letters, digits and hyphen). | No | ADR-0002 (Architecture Decision Record) |
 | 2 | Implement create_graph use case | Add `create_graph(gateway, credentials, graph)` in `application/use_cases/` that builds the URL with the username and puts the token in the `X-USER-TOKEN` header; this is the second assignment function. | No | ADR-0002 |
 | 3 | Add create-graph command | Add the `create-graph` command in `presentation/` with `--id`, `--name`, `--unit`, `--type` and `--color`, and export `create_graph` from the package. | No | |
 | 4 | Add tests for create graph | Add unit tests with a fake gateway for the URL, body and header, tests for the rules, an integration test against the local test server and an end-to-end test of the command; plus the code review record. | No | |
@@ -72,3 +73,4 @@ A `create_graph` function and a `create-graph` command that send the Pixela grap
 
 [BC-001]: ../business-case.md
 [08a6fcc]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/08a6fcc2c14667fa77bf15d126c00b34200252b5
+[7f06a77]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/7f06a776d218cf5d350b0a4f53708e9ff336e034

@@ -1,0 +1,45 @@
+# RC-021: MIL-002 delta re-review: abbreviations
+
+## Metadata
+| Key | Value |
+| --- | --- |
+| ID | RC-021 |
+| CrossReference | [MIL-002], [QC-LANG-001] |
+
+## Version History
+| Date | Status | Author | Reviewer | Change | Commit |
+| --- | --- | --- | --- | --- | --- |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [7f06a77] |
+
+---
+
+## Artifact Under Review
+
+- Instance reviewed: [MIL-002]
+- Checklist used: [QC-LANG-001] (`QC-LANG-001`)
+- Scope: delta re-review of criterion 10 of QC-LANG-001 only; reason: the change only spells out abbreviations on first use and changes no meaning, language or domain; earlier record RC-004 (all other rows still hold)
+- Language and domain: en / it
+- Language reviewer: none
+- Mode: autonomous, not independent (reviewer: `AI as stand-in for S01`)
+
+## Checklist Results
+
+| # | Criterion | Status | Evidence/Notes |
+| --- | --- | --- | --- |
+| 10 | Abbreviations are spelled out on first use, in the stated language | Pass | HTTP, POST, JSON and ADR are now spelled out in the stated language at first use; no abbreviation of this kind is left unexplained. |
+
+## Overall Verdict
+
+Go — Criterion 10 now passes, which closes the action item of RC-004. The other rows of RC-004 still hold because the content changed only by the spelled-out terms.
+
+## Action Items
+
+| Action | Owner | Due |
+| --- | --- | --- |
+| Action item of RC-004 (spell out abbreviations) is closed. | S01 | 2026-10-22 |
+
+---
+
+[MIL-002]: ../../milestones/mil-002-create-user.md
+[QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
+[7f06a77]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/7f06a776d218cf5d350b0a4f53708e9ff336e034

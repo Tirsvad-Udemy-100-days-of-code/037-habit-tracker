@@ -4,13 +4,13 @@
 | Key | Value |
 | --- | --- |
 | ID | TM-001 |
-| CrossReference | [BC-001], [SA-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [ADR-0001], [ADR-0002], [RC-001], [RC-002], [RC-003], [RC-004], [RC-005], [RC-006], [RC-007], [RC-008], [RC-009], [RC-010], [RC-011], [RC-012], [RC-013], [RC-014], [RC-015], [RC-016], [RC-017] |
+| CrossReference | [BC-001], [SA-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [ADR-0001], [ADR-0002], [RC-001], [RC-002], [RC-003], [RC-004], [RC-005], [RC-006], [RC-007], [RC-008], [RC-009], [RC-010], [RC-011], [RC-012], [RC-013], [RC-014], [RC-015], [RC-016], [RC-017], [RC-018], [RC-019], [RC-020], [RC-021], [RC-022], [RC-023], [RC-024] |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-015 for MIL-004 | [907a4c1] |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-016, RC-017 for MIL-005 | [9bcbccb] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-023 for MIL-004 | [7f06a77] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-024 for MIL-005 | [7f06a77] |
 
 ---
 
@@ -24,14 +24,14 @@ updated whenever an artifact instance is created or reviewed.
 
 | Artifact Instance | Type | Language | Domain | Upstream (Backward Link) | Downstream (Forward Link) | Last Reviewed (RC-ID) |
 | --- | --- | --- | --- | --- | --- | --- |
-| [BC-001] | BC | en | it | - | [SA-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005] | [RC-001] |
-| [SA-001] | SA | en | it | [BC-001] | [BC-001], [PP-001] | [RC-002] |
+| [BC-001] | BC | en | it | - | [SA-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005] | [RC-001], [RC-018] |
+| [SA-001] | SA | en | it | [BC-001] | [BC-001], [PP-001] | [RC-002], [RC-019] |
 | [PP-001] | PP | en | it | [BC-001], [SA-001] | [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005] | - |
-| [MIL-001] | MIL | en | it | [BC-001], [PP-001] | [MIL-002] | [RC-003], [RC-010], [RC-011], [RC-012] |
-| [MIL-002] | MIL | en | it | [BC-001], [PP-001], [MIL-001] | [MIL-003] | [RC-004], [RC-013] |
-| [MIL-003] | MIL | en | it | [BC-001], [PP-001], [MIL-002] | [MIL-004] | [RC-005], [RC-014] |
-| [MIL-004] | MIL | en | it | [BC-001], [PP-001], [MIL-003] | [MIL-005] | [RC-006], [RC-015] |
-| [MIL-005] | MIL | en | it | [BC-001], [PP-001], [MIL-004] | - | [RC-007], [RC-016], [RC-017] |
+| [MIL-001] | MIL | en | it | [BC-001], [PP-001] | [MIL-002] | [RC-003], [RC-010], [RC-011], [RC-012], [RC-020] |
+| [MIL-002] | MIL | en | it | [BC-001], [PP-001], [MIL-001] | [MIL-003] | [RC-004], [RC-013], [RC-021] |
+| [MIL-003] | MIL | en | it | [BC-001], [PP-001], [MIL-002] | [MIL-004] | [RC-005], [RC-014], [RC-022] |
+| [MIL-004] | MIL | en | it | [BC-001], [PP-001], [MIL-003] | [MIL-005] | [RC-006], [RC-015], [RC-023] |
+| [MIL-005] | MIL | en | it | [BC-001], [PP-001], [MIL-004] | - | [RC-007], [RC-016], [RC-017], [RC-024] |
 | [ADR-0001] | ADR | - | - | [BC-001], [SA-001] | [MIL-002] | [RC-008] |
 | [ADR-0002] | ADR | - | - | [BC-001] | [MIL-002], [MIL-003], [MIL-004] | [RC-009] |
 
@@ -68,7 +68,13 @@ updated whenever an artifact instance is created or reviewed.
 [RC-013]: ./reviews/rc-013-mil-002-code.md
 [RC-014]: ./reviews/rc-014-mil-003-code.md
 [RC-015]: ./reviews/rc-015-mil-004-code.md
-[907a4c1]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/907a4c13bd3a4247f678d0dbb2fce538c5722501
 [RC-016]: ./reviews/rc-016-mil-005-yaml.md
 [RC-017]: ./reviews/rc-017-mil-005-workflows.md
-[9bcbccb]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/9bcbccb233e7c7c8a4ec84afcc93a44e666fe715
+[RC-018]: ./reviews/rc-018-business-case-delta.md
+[RC-019]: ./reviews/rc-019-stakeholder-analysis-delta.md
+[RC-020]: ./reviews/rc-020-mil-001-project-setup-delta.md
+[RC-021]: ./reviews/rc-021-mil-002-create-user-delta.md
+[RC-022]: ./reviews/rc-022-mil-003-create-graph-delta.md
+[RC-023]: ./reviews/rc-023-mil-004-post-pixel-delta.md
+[RC-024]: ./reviews/rc-024-mil-005-docs-and-wiki-delta.md
+[7f06a77]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/7f06a776d218cf5d350b0a4f53708e9ff336e034

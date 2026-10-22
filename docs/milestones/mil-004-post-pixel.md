@@ -11,7 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
+| 2026-10-22 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Spelled out abbreviations on first use (QC-LANG-001 criterion 10) | [7f06a77] |
 
 ---
 
@@ -63,7 +64,7 @@ A `post_pixel` function and a `post-pixel` command that send the Pixela pixel re
 
 | # | Task | Summary | Needs its own Use Case/User Story? | Reference |
 | --- | --- | --- | --- | --- |
-| 1 | Add pixel domain types | Add `PixelDate` (accepts a `date`, formats it as `YYYYMMDD`) and `Quantity` (a finite number kept as a string) and a `Pixel` value object in `domain/`, so the format the lecture stresses is enforced in one place. | No | ADR-0002 |
+| 1 | Add pixel domain types | Add `PixelDate` (accepts a `date`, formats it as `YYYYMMDD`) and `Quantity` (a finite number kept as a string) and a `Pixel` value object in `domain/`, so the format the lecture stresses is enforced in one place. | No | ADR-0002 (Architecture Decision Record) |
 | 2 | Implement post_pixel use case | Add `post_pixel(gateway, credentials, graph_id, pixel)` in `application/use_cases/` that posts the pixel with the token in the header; this is the third assignment function. | No | ADR-0002 |
 | 3 | Add post-pixel command | Add the `post-pixel` command in `presentation/` with `--graph-id`, `--date` and `--quantity`, and export `post_pixel` from the package. | No | |
 | 4 | Add tests for post pixel | Add unit tests with a fake gateway, tests for the date and quantity rules, an integration test against the local test server and an end-to-end test of all three commands in dry-run; plus the code review record. | No | |
@@ -72,3 +73,4 @@ A `post_pixel` function and a `post-pixel` command that send the Pixela pixel re
 
 [BC-001]: ../business-case.md
 [08a6fcc]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/08a6fcc2c14667fa77bf15d126c00b34200252b5
+[7f06a77]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/7f06a776d218cf5d350b0a4f53708e9ff336e034
