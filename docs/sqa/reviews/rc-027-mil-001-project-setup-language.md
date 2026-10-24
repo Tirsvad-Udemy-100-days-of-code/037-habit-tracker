@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-24 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-10-24 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | [8ebc4dd] |
 
 ---
 
@@ -44,3 +44,4 @@ Go — Criteria 3, 5 and 9 of QC-LANG-001 are confirmed by S01. This closes the 
 
 [MIL-001]: ../../milestones/mil-001-project-setup.md
 [QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
+[8ebc4dd]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/8ebc4dd14053913fd2d9cd777c4b9a22f7fbfd82

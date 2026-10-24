@@ -9,8 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-24 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-030 for MIL-004 | pending |
-| 2026-10-24 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-031 for MIL-005 | pending |
+| 2026-10-24 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-030 for MIL-004 | [8ebc4dd] |
+| 2026-10-24 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-031 for MIL-005 | [8ebc4dd] |
 
 ---
 
@@ -84,3 +84,4 @@ updated whenever an artifact instance is created or reviewed.
 [RC-029]: ./reviews/rc-029-mil-003-create-graph-language.md
 [RC-030]: ./reviews/rc-030-mil-004-post-pixel-language.md
 [RC-031]: ./reviews/rc-031-mil-005-docs-and-wiki-language.md
+[8ebc4dd]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/8ebc4dd14053913fd2d9cd777c4b9a22f7fbfd82
