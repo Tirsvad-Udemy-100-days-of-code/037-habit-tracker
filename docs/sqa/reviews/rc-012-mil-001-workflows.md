@@ -65,4 +65,5 @@ Go — All Mandatory criteria of QC-WF-001 pass; criterion 22 is verified by two
 
 [MIL-001]: ../../milestones/mil-001-project-setup.md
 [QC-WF-001]: ../../../framework/qc/code/qc-workflow.md
+[QC-YML-001]: ../../../framework/qc/code/qc-yaml.md
 [8129020]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/8129020b8a0f090aa2383d543f3a980cfbb021c1
