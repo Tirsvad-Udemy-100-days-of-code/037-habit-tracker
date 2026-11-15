@@ -38,7 +38,7 @@ The plan schedules the five gateways (and, later, the baseline gateway) that tak
 | Create graph | [MIL-003] | 2026-10-24 to 2026-10-25 | 2026-10-25 | S01 | none (ADR-0002) | `create_graph`, create-graph command | [MIL-003 milestone] |
 | Post pixel | [MIL-004] | 2026-10-25 to 2026-10-26 | 2026-10-26 | S01 | none (ADR-0002) | `post_pixel`, post-pixel command | [MIL-004 milestone] |
 | Documentation and wiki | [MIL-005] | 2026-10-26 to 2026-10-28 | 2026-10-28 | S01 | none (ADR-0002) | README, screenshots, wiki in three languages, Doxygen | [MIL-005 milestone] |
-| Framework baseline | [MIL-006] | 2026-11-16 to 2026-11-23 | 2026-11-23 | S01 | none (ADR-0002) | The adopted framework release, the wiki sidebar in the framework's shape, the README, licence metadata, the two repaired static tests, the traceability matrix and review records | [MIL-006 milestone] |
+| Framework baseline | [MIL-006] | 2026-11-16 to 2026-11-23 | 2026-11-23 | S01 | none (ADR-0002) | The adopted framework release, the wiki sidebar in the framework's shape, the README, licence metadata, the two repaired static tests, the repaired coverage upload of the CI, the traceability matrix and review records | [MIL-006 milestone] |
 
 ```plantuml
 @startgantt

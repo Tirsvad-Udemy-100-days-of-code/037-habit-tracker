@@ -42,7 +42,7 @@ A tidy repository turns the lecture code into a reference that others can run in
 5. Document the source with Doxygen comments and provide a `Doxyfile`.
 6. Publish a README and a wiki in English, Danish and Bahasa Malaysia with screenshots.
 7. Describe the repository on the git host with a description and topics, and run the shared quality workflows of `TirSystem/github-action`.
-8. Bring the finished project to the common baseline of the framework: the adopted framework release, the wiki sidebar in the framework's shape, complete licence metadata, a README and wiki that describe the workflows as they are now, a passing test suite after the move to the shared workflows and to the framework's sidebar shape, and review records for every changed document ([MIL-006]).
+8. Bring the finished project to the common baseline of the framework: the adopted framework release, the wiki sidebar in the framework's shape, complete licence metadata, a README and wiki that describe the workflows as they are now, a green tests job of the CI after the move to the shared workflows and to the framework's sidebar shape, and review records for every changed document ([MIL-006]).
 
 ## Scope
 
@@ -54,7 +54,7 @@ A tidy repository turns the lecture code into a reference that others can run in
 - A `constants.py` for constants, Doxygen comments in the source and a `Doxyfile`.
 - The README from the framework template, a wiki in English, Danish and Bahasa Malaysia, and screenshots for both.
 - The shared workflows from `TirSystem/github-action` that suit a Python project, the repository description and topics, one pull request per milestone.
-- The baseline milestone [MIL-006]: the framework release, the wiki sidebar in the framework's shape, the README without the private framework files in its appendix and without the removed wiki workflow, licence and project URL metadata, `.editorconfig`, `.env.example`, review records, a current traceability matrix and the repair of two static tests. It changes no behaviour of the program.
+- The baseline milestone [MIL-006]: the framework release, the wiki sidebar in the framework's shape, the README without the private framework files in its appendix and without the removed wiki workflow, licence and project URL metadata, `.editorconfig`, `.env.example`, review records, a current traceability matrix the repair of two static tests and the repair of the coverage upload step of the CI. It changes no behaviour of the program.
 
 ### Out of Scope
 
@@ -63,7 +63,7 @@ A tidy repository turns the lecture code into a reference that others can run in
 - Reading a `.env` file in the project: the file is personal to the author and is not imported, tested or committed.
 - Graphical user interface, a database, packaging for PyPI and any other habit service than Pixela.
 - Tests against the live Pixela service.
-- Any change to `src/` in the baseline milestone [MIL-006], and any change to `tests/` except the two static tests that task 6 of [MIL-006] adapts: the pattern of the shared workflow repository in the workflow test and the sidebar check of the wiki test.
+- Any change to `src/` in the baseline milestone [MIL-006], and any change to `tests/` except the two static tests that task 6 of [MIL-006] adapts: the pattern of the shared workflow repository in the workflow test and the sidebar check of the wiki test; the only change to `.gitea/workflows/ci.yml` is the version of the coverage upload action (task 7).
 
 ## Expected Benefits
 

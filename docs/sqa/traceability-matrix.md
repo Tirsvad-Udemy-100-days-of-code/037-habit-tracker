@@ -45,7 +45,7 @@ updated whenever an artifact instance is created or reviewed.
 - The wiki (`docs/wiki/`) is documentation, not an artifact with an ID or a Language and Domain row; it has its own review record, [RC-035].
 - The project workflow `.gitea/workflows/publish-wiki.yml` that [MIL-005] added was removed in pull request #40, when the repository moved to the shared workflows of the git host; RC-017 reviewed it while it existed. `ci.yml` and `english-comments.yml` are still reviewed there and in RC-012.
 - The domain of [BC-001], [PP-001], [MIL-006] and the wiki is `education` since [MIL-006]. The other documents keep the domain `it` they were accepted with; a change of their domain would need a new review of each (see the Open Issues of [PP-001]).
-- [MIL-006] changes no source file, so the source code is not reviewed again. Its only changes under `tests/` are the pattern of the shared workflow repository in `tests/unit/test_workflows.py` and the sidebar check in `tests/unit/test_wiki.py` (task 6); the test suite and the quality checks of the pull request verify them, and no new code review record is written for them.
+- [MIL-006] changes no source file, so the source code is not reviewed again. Its only changes under `tests/` are the pattern of the shared workflow repository in `tests/unit/test_workflows.py` and the sidebar check in `tests/unit/test_wiki.py` (task 6), and its only change to `.gitea/workflows/ci.yml` is the version of the coverage upload action (task 7); the test suite and the quality checks of the pull request verify them, and no new code review record is written for them.
 - The types KPI, BMC, BPMN, UCD, US, UC, DM, SSD, OC, SD, DCD, ERD and DICT have no instance (ADR-0002).
 
 ---

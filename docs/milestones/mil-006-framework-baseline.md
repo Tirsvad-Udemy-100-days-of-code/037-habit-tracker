@@ -21,7 +21,7 @@ This gate decides whether Habit Tracker has the baseline of the framework: the a
 
 ## Deliverable
 
-A merged pull request that holds: the updated Business Case, Project Plan, Artifact Registry and Traceability Matrix and their review records; the wiki sidebar and the Development pages in `docs/wiki/`; the README without the private framework files in its appendix; `pyproject.toml` with the licence expression, the project URLs, the author and a build requirement that reads the licence expression; `.editorconfig` and `.env.example` of the framework baseline; the repair of `tests/unit/test_workflows.py` and `tests/unit/test_wiki.py`; and the framework release adopted by the project. The program (`src/`) does not change.
+A merged pull request that holds: the updated Business Case, Project Plan, Artifact Registry and Traceability Matrix and their review records; the wiki sidebar and the Development pages in `docs/wiki/`; the README without the private framework files in its appendix; `pyproject.toml` with the licence expression, the project URLs, the author and a build requirement that reads the licence expression; `.editorconfig` and `.env.example` of the framework baseline; the repair of `tests/unit/test_workflows.py` and `tests/unit/test_wiki.py`, and the version of the coverage upload action in `.gitea/workflows/ci.yml`; and the framework release adopted by the project. The program (`src/`) does not change.
 
 ## Go / No-Go Criteria
 
@@ -71,6 +71,7 @@ A merged pull request that holds: the updated Business Case, Project Plan, Artif
 | 4 | Bring the README to the framework template | Keep the text of the README, add the framework files to the description of the layout, name the licence expression, correct the CI paragraph and give the appendix only the documents that are in the repository, so the README is complete and checkable. | No | BC-001 objective 8 |
 | 5 | Complete the package metadata | Set the licence expression, the licence file and the project URLs in `pyproject.toml` and raise the build requirement to the setuptools version that reads a licence expression, so package tools can read them. | No | BC-001 objective 8 |
 | 6 | Repair two static tests | Change the pattern of the shared workflow repository in `tests/unit/test_workflows.py` from `TirSystem/github-action` to `TirSystem/git-workflows`, which the callers have named since pull request #40, and change the sidebar check in `tests/unit/test_wiki.py` from "every page in every language is linked" to "every English page and the Home page of each language is linked", which is the sidebar shape of the framework (task 3), so the tests job of the continuous integration passes again. Only these two checks change; no source file and no other test changes. | No | BC-001 objective 8 |
+| 7 | Repair the coverage upload of the CI | Replace `actions/upload-artifact@v4.6.2` in `.gitea/workflows/ci.yml` by `actions/upload-artifact@v3.2.1`, because the git host does not support version 4 of the artifact actions (the upload step failed with GHESNotSupportedError after the tests had passed), so the tests job of the continuous integration passes. No other line of the workflow changes. | No | BC-001 objective 8 |
 
 ---
 
