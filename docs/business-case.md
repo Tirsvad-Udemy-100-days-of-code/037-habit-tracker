@@ -13,7 +13,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version | [08a6fcc] |
 | 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Spelled out abbreviations on first use (QC-LANG-001 criterion 10) | [7f06a77] |
-| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added objective 8, success criterion 8, a scope item, an out-of-scope item, a risk and constraints for the baseline milestone MIL-006; set the domain to education; reviewed in autonomous mode, not independent | pending |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added objective 8, success criterion 8, a scope item, an out-of-scope item, a risk and constraints for the baseline milestone MIL-006; set the domain to education; reviewed in autonomous mode, not independent | [c70439b] |
 
 ---
 
@@ -155,3 +155,4 @@ Proceed — the scope is small, the risks are mitigated and the result is useful
 [08a6fcc]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/08a6fcc2c14667fa77bf15d126c00b34200252b5
 [7f06a77]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/7f06a776d218cf5d350b0a4f53708e9ff336e034
 [MIL-006]: ./milestones/mil-006-framework-baseline.md
+[c70439b]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/c70439bcf73548c2279f0cd9d30b3c1e92188270

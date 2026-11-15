@@ -11,7 +11,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-24 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-030 for MIL-004 | [8ebc4dd] |
 | 2026-10-24 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added RC-031 for MIL-005 | [8ebc4dd] |
-| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added MIL-006, the review records RC-032 to RC-035 and the wiki; set the reviewed rows of BC-001 and PP-001 and the domain of the changed rows to education; replaced the stale coverage note (autonomous, not independent) | pending |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added MIL-006, the review records RC-032 to RC-035 and the wiki; set the reviewed rows of BC-001 and PP-001 and the domain of the changed rows to education; replaced the stale coverage note (autonomous, not independent) | [c70439b] |
 
 ---
 
@@ -97,3 +97,4 @@ updated whenever an artifact instance is created or reviewed.
 [RC-033]: ./reviews/rc-033-project-plan-baseline.md
 [RC-034]: ./reviews/rc-034-milestone-006.md
 [RC-035]: ./reviews/rc-035-wiki.md
+[c70439b]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/c70439bcf73548c2279f0cd9d30b3c1e92188270

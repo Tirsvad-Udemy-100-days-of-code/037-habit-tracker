@@ -13,7 +13,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Final state: milestone links, open issues of the wiki | [9bcbccb] |
 | 2026-10-22 | Deprecated | Jens Tirsvad Nielsen | AI as stand-in for S01 | Open issue: S01 accepted the Danish and Bahasa Malaysia wiki translations | [5255a41] |
-| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the baseline gateway (MIL-006) with its schedule row, scope coverage, dependency, risk and Gantt entries; noted which Open Issues are superseded (the project publish-wiki workflow was removed when the shared workflows of the git host took over); set the domain to education; reviewed in autonomous mode, not independent | pending |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the baseline gateway (MIL-006) with its schedule row, scope coverage, dependency, risk and Gantt entries; noted which Open Issues are superseded (the project publish-wiki workflow was removed when the shared workflows of the git host took over); set the domain to education; reviewed in autonomous mode, not independent | [c70439b] |
 
 ---
 
@@ -118,3 +118,4 @@ A No-Go on a gateway moves every later date by the time of the rework; the end d
 [5255a41]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/5255a41406e0221209c9305e555fc32b1eb9d95c
 [MIL-006]: ./milestones/mil-006-framework-baseline.md
 [MIL-006 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/milestone/552
+[c70439b]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/037-habit-tracker/commit/c70439bcf73548c2279f0cd9d30b3c1e92188270
